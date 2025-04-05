@@ -1,25 +1,23 @@
-from typing import override
-from manim import Scene, Tex, Write, Matrix, DOWN, UP
+from manim import *
 
 
 class MathScene(Scene):
-    @override
     def construct(self):
         # Create a title with LaTeX
-        title = Tex(r"\textbf{Manim's pretty math!}", font_size=36)
-        _ = title.to_edge(UP)
+        title = Text("Manim's pretty math!", font_size=36)
+        title.to_edge(UP)
         self.play(Write(title))
         self.wait(1)
 
         # Section 1: Simple equation
         equation = Tex(r"E = mc^2", tex_environment="math")
-        _ = equation.next_to(title, DOWN, buff=0.5)
+        equation.next_to(title, DOWN, buff=0.5)
         self.play(Write(equation))
         self.wait(1)
 
         # Section 2: Quadratic equation
         quadratic_eq = Tex(r"ax^2 + bx + c = 0", tex_environment="math")
-        _ = quadratic_eq.next_to(equation, DOWN, buff=0.5)
+        quadratic_eq.next_to(equation, DOWN, buff=0.5)
         self.play(Write(quadratic_eq))
         self.wait(1)
 
@@ -27,7 +25,7 @@ class MathScene(Scene):
         quadratic_formula = Tex(
             r"x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}", tex_environment="math"
         )
-        _ = quadratic_formula.next_to(quadratic_eq, DOWN, buff=0.5)
+        quadratic_formula.next_to(quadratic_eq, DOWN, buff=0.5)
         self.play(Write(quadratic_formula))
         self.wait(1)
 
@@ -39,8 +37,8 @@ class MathScene(Scene):
                 [r"a_{31}", r"a_{32}", r"a_{33}"],
             ]
         )
-        _ = matrix.scale(0.5)
-        _ = matrix.next_to(quadratic_formula, DOWN, buff=0.5)
+        matrix.scale(0.5)
+        matrix.next_to(quadratic_formula, DOWN, buff=0.5)
         self.play(Write(matrix))
         self.wait(1)
 
